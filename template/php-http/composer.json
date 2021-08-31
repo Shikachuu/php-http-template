@@ -1,0 +1,21 @@
+{
+  "name": "openfaas/php-http",
+  "description": "PHP HTTP template for OpenFaaS.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shikachuu",
+      "email": "zcmate@gmail.com"
+    }
+  ],
+  "config": {
+    "classmap-authoritative": true
+  },
+  "require": {
+    "php": "^8.0",
+    "nyholm/psr7": "^1.4",
+    "nyholm/psr7-server": "^1.0",
+    "laminas/laminas-httphandlerrunner": "^2.0"
+  }
+}

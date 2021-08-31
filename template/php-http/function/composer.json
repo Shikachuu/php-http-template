@@ -1,0 +1,17 @@
+{
+  "name": "openfaas/function",
+  "description": "",
+  "type": "project",
+  "license": "proprietary",
+  "config": {
+    "classmap-authoritative": true
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.0"
+  }
+}
