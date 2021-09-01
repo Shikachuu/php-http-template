@@ -1,0 +1,7 @@
+language: php-http
+fprocess: php -d variables_order=EGPCS -S 0.0.0.0:8000 index.php
+welcome_message: |
+  You have created a new function which uses PHP 8.0 and the OpenFaaS
+  of-watchdog which gives greater control over HTTP responses.
+  composer require can be used to add third-party packages like guzzlehttp/guzzle or ramsey/uuid
+  By default it uses psr-7 request/response objects to represent http communication.

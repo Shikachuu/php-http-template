@@ -5,7 +5,7 @@ FROM --platform=${TARGETPLATFORM:-linux/amd64} composer:2 as dependencyInstaller
 
 # Install core dependencies
 WORKDIR /app
-COPY ../.. .
+COPY . .
 RUN composer i -o --no-dev --ignore-platform-reqs --prefer-dist --no-progress --no-scripts
 
 # Install function dependencies
@@ -30,13 +30,13 @@ COPY --from=dependencyInstaller /app /home/app
 RUN chown app:app -R /home/app
 
 # Install php extensions
-RUN [[ -f php-extension.sh ]] && sh ./php-extension.sh && \
+RUN sh /home/app/function/php-extension.sh && \
     chown -R app /home/app
 
 USER app
 
 ENV cgi_headers="true"
-ENV fprocess="php -S 0.0.0.0:8000 index.php"
+ENV fprocess="php -d variables_order=EGPCS -S 0.0.0.0:8000 index.php"
 ENV mode="http"
 ENV upstream_url="http://127.0.0.1:8000"
 
